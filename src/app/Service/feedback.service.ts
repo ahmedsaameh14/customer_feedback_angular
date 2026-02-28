@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class FeedbackService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
+
+   URL = 'http://localhost:3000/api/feedback'
+
+   addFeedback(text : string){
+    return this._http.post(this.URL , {text});
+   }
+   getFeedback(){
+    return this._http.get(this.URL)
+   }
 }
