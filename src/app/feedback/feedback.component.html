@@ -28,6 +28,11 @@
                         [ngClass]="message.includes('Fail') ? 'alert-danger' : 'alert-success'">
                         {{ message }}
                     </div>
+                    <div class="mt-4 pt-3 border-top">
+                        <button type="button" class="btn btn-outline-secondary w-100" routerLink="/dashboard">
+                            <i class="bi bi-speedometer2 me-2"></i> View All Feedback Dashboard
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<div class="mt-4">
+  <div *ngFor="let f of feedbacks$ | async" class="card mb-3 shadow-sm border-0 border-start border-4"
+       [ngClass]="{
+         'border-success': f.sentiment === 'positive',
+         'border-danger': f.sentiment === 'negative',
+         'border-warning': f.sentiment === 'neutral'
+       }">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <span class="badge bg-light text-dark border">{{ f.language }}</span>
+        <span class="badge" [ngClass]="f.sentiment === 'positive' ? 'bg-success' : (f.sentiment === 'negative' ? 'bg-danger' : 'bg-warning text-dark')">
+          {{ f.sentiment }}
+        </span>
+      </div>
+      <p class="mt-2 mb-1"><strong>Original:</strong> {{ f.text }}</p>
+      <p class="text-muted small"><strong>Translation:</strong> {{ f.translatedText }}</p>
+    </div>
+  </div>
+</div>
