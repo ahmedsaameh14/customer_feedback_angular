@@ -1,0 +1,18 @@
+.bg-primary-subtle {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+.bg-success-subtle { background-color: #d1e7dd; }
+.bg-danger-subtle { background-color: #f8d7da; }
+.bg-warning-subtle { background-color: #fff3cd; }
+
+.badge {
+    font-weight: 500;
+}
+
+.feedback-timeline .card {
+    transition: transform 0.2s;
+}
+
+.feedback-timeline .card:hover {
+    transform: translateX(5px);
+}

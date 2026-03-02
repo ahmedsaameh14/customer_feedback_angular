@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { FeedbackRes } from '../Model/feedback';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,7 @@ export class FeedbackService {
   addFeedback(text: string) {
     return this._http.post(this.URL, { text });
   }
-  loadAllFeedbacks() {
-    this._http.get<{ data: any[] }>(this.URL).subscribe((res) => {
-      this.feedbackListSubject.next(res.data);
-    });
+  loadAllFeedbacks(page: number=1 , limit: number=5) {
+    return this._http.get<FeedbackRes>(`${this.URL}?page=${page}&limit=${limit}`)
   }
 }
