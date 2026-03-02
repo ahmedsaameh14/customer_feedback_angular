@@ -16,7 +16,7 @@
     </div>  <br>
 
   <div class="feedback-timeline">
-    <div *ngFor="let f of feedbacks" class="card mb-4 shadow-sm border-0 position-relative">
+    <div *ngFor="let f of feedbacks; trackBy: trackById" class="card mb-4 shadow-sm border-0 position-relative">
       <div class="position-absolute top-0 start-0 bottom-0 rounded-start" 
            [ngClass]="{
              'bg-success': f.sentiment === 'positive',
