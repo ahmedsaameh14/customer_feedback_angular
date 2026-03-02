@@ -12,7 +12,7 @@ export class FeedbackService {
 
   constructor(private _http: HttpClient) {}
 
-  URL = 'http://localhost:3000/api/feedback';
+  URL = 'https://customer-feedback-backend-ten.vercel.app/api/feedback';
 
   addFeedback(text: string) {
     return this._http.post(this.URL, { text });
