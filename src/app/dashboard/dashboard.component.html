@@ -7,6 +7,13 @@
       Page {{ currentPage }} / {{ totalPages }}
     </span>
   </div>
+  <div class="input-group w-50">
+      <input type="text" class="form-control" placeholder="Search by language (e.g., German)..." 
+             [(ngModel)]="searchLanguage" (keyup.enter)="onSearch()">
+      <button class="btn btn-outline-secondary" type="button" (click)="onSearch()">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>  <br>
 
   <div class="feedback-timeline">
     <div *ngFor="let f of feedbacks" class="card mb-4 shadow-sm border-0 position-relative">
@@ -39,10 +46,6 @@
               {{ f.sentiment }}
             </span>
           </div>
-          <small class="text-muted">
-            <i class="bi bi-calendar3 me-1"></i>
-            {{ f.createdAt | date:'short' }}
-          </small>
         </div>
         
         <div class="row">
@@ -77,5 +80,6 @@
     <button class="btn btn-outline-primary" routerLink="/">
       <i class="bi bi-arrow-left me-2"></i>Back to Home
     </button>
+    
   </div>
 </div>

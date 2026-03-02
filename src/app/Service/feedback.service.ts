@@ -17,7 +17,13 @@ export class FeedbackService {
   addFeedback(text: string) {
     return this._http.post(this.URL, { text });
   }
-  loadAllFeedbacks(page: number=1 , limit: number=5) {
-    return this._http.get<FeedbackRes>(`${this.URL}?page=${page}&limit=${limit}`)
+  // Add language parameter, default to empty string
+loadAllFeedbacks(page: number=1 , limit: number=5, language: string = '') {
+    // Add language to URL if it exists
+    let url = `${this.URL}?page=${page}&limit=${limit}`;
+    if (language) {
+      url += `&lang=${language}`;
+    }
+    return this._http.get<FeedbackRes>(url);
   }
 }
