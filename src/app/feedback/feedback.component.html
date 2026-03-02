@@ -1,1 +1,35 @@
-<p>feedback works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Customer Feedback</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="feedbackForm" (ngSubmit)="sendFeedback()">
+                        <div class="mb-3">
+                            <label for="feedbackText" class="form-label">Tell us what you think:</label>
+                            <textarea id="feedbackText" class="form-control" rows="4" formControlName="text"
+                                placeholder="Enter feedback in any language..."
+                                [class.is-invalid]="feedbackForm.get('text')?.invalid && feedbackForm.get('text')?.touched">
+              </textarea>
+                            <div class="invalid-feedback">
+                                Please provide some feedback before sending.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="isSent">
+                            <span *ngIf="isSent" class="spinner-border spinner-border-sm me-2"></span>
+                            {{ isSent ? 'Analyzing...' : 'Send Feedback' }}
+                        </button>
+                    </form>
+
+                    <div *ngIf="message" class="mt-3 alert"
+                        [ngClass]="message.includes('Fail') ? 'alert-danger' : 'alert-success'">
+                        {{ message }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

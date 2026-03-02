@@ -1,0 +1,21 @@
+.container {
+  max-width: 800px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+textarea {
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  box-shadow: 0 0 0 0.25 cold-rem rgba(13, 110, 253, 0.15);
+}
+
+.spinner-border {
+  vertical-align: middle;
+}
